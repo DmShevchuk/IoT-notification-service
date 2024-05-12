@@ -1,0 +1,26 @@
+server:
+  servlet:
+    context-path: /notification/api/v1
+  port: 5007
+
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: notification-service
+  kafka:
+    bootstrap-servers: localhost:29092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        acks: 1
+        spring:
+          json:
+            add:
+              type:
+                headers: false
+
+kafka-topics:
+  send-notification: notifications
