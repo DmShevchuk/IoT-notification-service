@@ -18,6 +18,7 @@ public class NotificationController {
 
     @PostMapping
     public void sendNotificationEvent(@RequestBody NotificationEvent notificationEvent) {
+        kafkaProducer.sendNotificationEvent(notificationEvent);
     }
 
 
