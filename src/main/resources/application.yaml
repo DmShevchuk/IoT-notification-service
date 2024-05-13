@@ -10,7 +10,7 @@ spring:
   application:
     name: notification-service
   kafka:
-    bootstrap-servers: localhost:29092
+    bootstrap-servers: 182.20.0.20:29092
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
