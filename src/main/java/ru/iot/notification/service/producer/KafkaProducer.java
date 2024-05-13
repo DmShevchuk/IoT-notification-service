@@ -16,7 +16,6 @@ public class KafkaProducer {
 
     public void sendNotificationEvent(NotificationEvent notificationEvent) {
         kafkaSender.sendNotification(notificationEvent);
-        log.info("Отправка сообщения {}", notificationEvent);
     }
 
 }

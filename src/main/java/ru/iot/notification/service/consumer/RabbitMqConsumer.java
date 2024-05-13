@@ -23,7 +23,7 @@ public class RabbitMqConsumer {
 
     @RabbitListener(queues = "iot-queue")
     public void acceptNotification(String notificationEvent) throws JsonProcessingException {
-        log.info("Получил {}", notificationEvent);
+        log.info("Получил сообщение о необходимости заказа еды {}", notificationEvent);
         kafkaProducer.sendNotificationEvent(objectMapper.readValue(notificationEvent, new TypeReference<>() {}));
     }
 }
