@@ -10,7 +10,7 @@ spring:
   application:
     name: notification-service
   kafka:
-    bootstrap-servers: 182.20.0.20:29092
+    bootstrap-servers: localhost:29092
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
@@ -21,6 +21,27 @@ spring:
             add:
               type:
                 headers: false
+
+rabbitmq:
+  host: localhost
+  port: 5672
+  username: iot
+  password: iot
+  ttl: 100
+  durable: true
+  exclusive: false
+  auto-delete: false
+  iot:
+    queue: iot-queue
+    exchange: iot
+    routing-key: iot-routing-key
+  parking:
+    dlq-queue: iot-queue-dlq
+    parking-queue: iot-queue-parking
+    exchange: dlx-exchange
+    routing-key: parking-routing-key
+    dlx-routing-key: dlx-routing-key
+
 
 kafka-topics:
   send-notification: notifications
